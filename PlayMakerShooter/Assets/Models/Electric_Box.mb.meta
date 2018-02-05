@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 2ccb8a21832334b66869e58cb51b4589
+timeCreated: 18446744011573954816
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Assembly
+    100002: Brace_01
+    100004: Brace_010
+    100006: Brace_011
+    100008: Brace_012
+    100010: Brace_013
+    100012: Brace_014
+    100014: Brace_015
+    100016: Brace_016
+    100018: Brace_017
+    100020: Brace_018
+    100022: Brace_019
+    100024: Brace_02
+    100026: Brace_03
+    100028: Brace_04
+    100030: Brace_05
+    100032: Brace_06
+    100034: Brace_07
+    100036: Brace_08
+    100038: Brace_09
+    100040: Cap_01
+    100042: Cap_02
+    100044: //RootNode
+    100046: Frame
+    100048: Pipe_01
+    100050: Pipe_02
+    100052: Pipe_03
+    100054: Removable_Part
+    400000: Assembly
+    400002: Brace_01
+    400004: Brace_010
+    400006: Brace_011
+    400008: Brace_012
+    400010: Brace_013
+    400012: Brace_014
+    400014: Brace_015
+    400016: Brace_016
+    400018: Brace_017
+    400020: Brace_018
+    400022: Brace_019
+    400024: Brace_02
+    400026: Brace_03
+    400028: Brace_04
+    400030: Brace_05
+    400032: Brace_06
+    400034: Brace_07
+    400036: Brace_08
+    400038: Brace_09
+    400040: Cap_01
+    400042: Cap_02
+    400044: //RootNode
+    400046: Frame
+    400048: Pipe_01
+    400050: Pipe_02
+    400052: Pipe_03
+    400054: Removable_Part
+    2300000: Brace_01
+    2300002: Brace_010
+    2300004: Brace_011
+    2300006: Brace_012
+    2300008: Brace_013
+    2300010: Brace_014
+    2300012: Brace_015
+    2300014: Brace_016
+    2300016: Brace_017
+    2300018: Brace_018
+    2300020: Brace_019
+    2300022: Brace_02
+    2300024: Brace_03
+    2300026: Brace_04
+    2300028: Brace_05
+    2300030: Brace_06
+    2300032: Brace_07
+    2300034: Brace_08
+    2300036: Brace_09
+    2300038: Cap_01
+    2300040: Cap_02
+    2300042: Frame
+    2300044: Pipe_01
+    2300046: Pipe_02
+    2300048: Pipe_03
+    2300050: Removable_Part
+    3300000: Brace_01
+    3300002: Brace_010
+    3300004: Brace_011
+    3300006: Brace_012
+    3300008: Brace_013
+    3300010: Brace_014
+    3300012: Brace_015
+    3300014: Brace_016
+    3300016: Brace_017
+    3300018: Brace_018
+    3300020: Brace_019
+    3300022: Brace_02
+    3300024: Brace_03
+    3300026: Brace_04
+    3300028: Brace_05
+    3300030: Brace_06
+    3300032: Brace_07
+    3300034: Brace_08
+    3300036: Brace_09
+    3300038: Cap_01
+    3300040: Cap_02
+    3300042: Frame
+    3300044: Pipe_01
+    3300046: Pipe_02
+    3300048: Pipe_03
+    3300050: Removable_Part
+    4300000: Frame
+    4300002: Pipe_01
+    4300004: Pipe_02
+    4300006: Pipe_03
+    4300008: Brace_01
+    4300010: Brace_02
+    4300012: Brace_03
+    4300014: Cap_01
+    4300016: Cap_02
+    4300018: Brace_04
+    4300020: Brace_05
+    4300022: Brace_06
+    4300024: Brace_07
+    4300026: Brace_08
+    4300028: Brace_09
+    4300030: Brace_010
+    4300032: Brace_011
+    4300034: Brace_012
+    4300036: Brace_013
+    4300038: Brace_014
+    4300040: Brace_015
+    4300042: Brace_016
+    4300044: Brace_017
+    4300046: Brace_018
+    4300048: Brace_019
+    4300050: Removable_Part
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 4
+    normalCalculationMode: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
