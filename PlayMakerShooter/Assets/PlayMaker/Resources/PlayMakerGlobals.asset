@@ -20,6 +20,12 @@ MonoBehaviour:
       showInInspector: 0
       networkSync: 0
       value: 1
+    - useVariable: 1
+      name: Parts_collected
+      tooltip: 
+      showInInspector: 0
+      networkSync: 0
+      value: 0
     boolVariables: []
     stringVariables:
     - useVariable: 1
@@ -41,6 +47,8 @@ MonoBehaviour:
     enumVariables: []
     categories:
     - 
-    variableCategoryIDs: 0000000000000000
+    variableCategoryIDs: 000000000000000000000000
   events:
   - advance_quest_stage
+  - collected_part
+  - Update_Text
