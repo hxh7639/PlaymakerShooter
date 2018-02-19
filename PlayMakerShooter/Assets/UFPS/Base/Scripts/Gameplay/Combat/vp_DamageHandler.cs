@@ -227,7 +227,9 @@ public class vp_DamageHandler : MonoBehaviour
 	public virtual void Damage(vp_DamageInfo damageInfo)
 	{
 
-		if (!enabled)
+        Debug.Log("damage type " +   damageInfo.Type); // andy -debug
+
+        if (!enabled)
 			return;
 
 		if (!vp_Utility.IsActive(gameObject))

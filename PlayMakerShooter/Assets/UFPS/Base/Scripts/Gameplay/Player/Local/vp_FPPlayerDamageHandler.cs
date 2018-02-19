@@ -58,10 +58,10 @@ public class vp_FPPlayerDamageHandler : vp_PlayerDamageHandler
 	}
 
 
-	/// <summary>
-	/// registers this component with the event handler (if any)
-	/// </summary>
-	protected override void OnEnable()
+    /// <summary>
+    /// registers this component with the event handler (if any)
+    /// </summary>
+    protected override void OnEnable()
 	{
 
 		if (FPPlayer != null)
@@ -129,8 +129,9 @@ public class vp_FPPlayerDamageHandler : vp_PlayerDamageHandler
 	/// </summary>
 	public override void Damage(vp_DamageInfo damageInfo)
 	{
+        Debug.Log("damage type " + damageInfo.Type); // andy - debug damage type
 
-		if (!enabled)
+        if (!enabled)
 			return;
 
 		if (!vp_Utility.IsActive(gameObject))

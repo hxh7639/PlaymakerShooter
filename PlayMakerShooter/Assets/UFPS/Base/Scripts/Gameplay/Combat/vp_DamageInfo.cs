@@ -29,6 +29,7 @@ public class vp_DamageInfo
 		Impact,
 		Bullet,
 		Explosion,
+        melee, // added by andy
 		// the above are the types represented in the UFPS demo but can be easily
 		// extended: e.g. blunt, electrical, cutting, piercing, freezing, crushing
 		// drowning, gas, acid, freezing, burning, scolding, magical, plasma etc.
