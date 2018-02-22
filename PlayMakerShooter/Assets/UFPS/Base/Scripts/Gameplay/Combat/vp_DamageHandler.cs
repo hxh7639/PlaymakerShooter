@@ -26,9 +26,12 @@ using UnityEngine.SceneManagement;
 
 public class vp_DamageHandler : MonoBehaviour
 {
+    //Andy Damage Type
+    public bool OnlyDamagesByMace = false;
+    public bool isTree = false;
 
-	// health and death
-	public float MaxHealth = 1.0f;						// initial health of the object instance, to be reset on respawn
+    // health and death
+    public float MaxHealth = 1.0f;						// initial health of the object instance, to be reset on respawn
 	public GameObject [] DeathSpawnObjects = null;		// gameobjects to spawn when object dies.
 														// TIP: could be fx, could also be rigidbody rubble
 	public float MinDeathDelay = 0.0f;					// random timespan in seconds to delay death. good for cool serial explosions
@@ -251,8 +254,14 @@ public class vp_DamageHandler : MonoBehaviour
 			//Debug.Log("Damage! Source: " + damageInfo.Source + " ... " + "OriginalSource: " + damageInfo.OriginalSource);
 		}
 
-		// if we somehow shot ourselves with a bullet, ignore it
-		if ((damageInfo.Type == vp_DamageInfo.DamageType.Bullet) && (m_Source == Transform))
+
+        // Andy if it is tree
+        // Andy, If it can only be damaged by Mace and the damage type was not mace
+        if ((OnlyDamagesByMace) && (damageInfo.Type != vp_DamageInfo.DamageType.Mace))
+            return;
+
+        // if we somehow shot ourselves with a bullet, ignore it
+        if ((damageInfo.Type == vp_DamageInfo.DamageType.Bullet) && (m_Source == Transform))
 			return;
 
 		// --- damage will be inflicted ---
@@ -262,9 +271,16 @@ public class vp_DamageHandler : MonoBehaviour
 		// subtract damage from health
 		CurrentHealth = Mathf.Min(CurrentHealth - damageInfo.Damage, MaxHealth);
 
-		// in multiplayer, report damage for score tracking purposes
-		if (vp_Gameplay.IsMultiplayer && (damageInfo.Source != null))
+        // Andy, if it is a tree
+        if (isTree)
+        {
+            print("this is a tree, give attacker wood!");
+        }
+
+        // in multiplayer, report damage for score tracking purposes
+            if (vp_Gameplay.IsMultiplayer && (damageInfo.Source != null))
 			vp_GlobalEvent<Transform, Transform, float>.Send("TransmitDamage", Transform.root, damageInfo.OriginalSource, damageInfo.Damage);
+
 
 		// detect and transmit death as event
 		if (CurrentHealth <= 0.0f)

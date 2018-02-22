@@ -58,7 +58,7 @@ public class Andy_UFPSFXMelee : vp_Bullet
     protected override void DoUFPSDamage()
     {
 
-        m_TargetDHandler.Damage(new vp_DamageInfo(Damage, m_Source, vp_DamageInfo.DamageType.melee));
+        m_TargetDHandler.Damage(new vp_DamageInfo(Damage, m_Source, vp_DamageInfo.DamageType.Mace));
 
     }
 
