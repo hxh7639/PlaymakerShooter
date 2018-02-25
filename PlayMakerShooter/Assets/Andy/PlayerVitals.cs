@@ -25,6 +25,15 @@ public class PlayerVitals : MonoBehaviour {
     private int staminaRegainRate;
     public int staminaRegainMultiplier;
 
+    [Header("Temperature Settings")]
+    public float freezingTemp;
+    public float currentTemp;
+    public float normalTemp;
+    public float overheatTemp;
+    public Text tempNumber;
+    public Image tempBG;
+    public int healthFallDueTempMulti = 1;
+
     private CharacterController charController;
     private vp_FPController playerController;
 
@@ -54,8 +63,30 @@ public class PlayerVitals : MonoBehaviour {
 	void Update ()
     {
 
-        //TODO implement multipler (for running, working.. etc)
-        // HEALTH CONTROLLER
+        //TEMPERATURE SECTION
+        UpdateTemp();
+        if(currentTemp <= freezingTemp)
+        {
+            tempBG.color = Color.blue;
+        }
+        else if (currentTemp >= overheatTemp - 0.1)
+        {
+            tempBG.color = Color.Lerp(new Color(1f,0.5f,0.2f), Color.red, Mathf.PingPong(Time.time, 1));
+        }
+        else
+        {
+            tempBG.color = Color.green;
+        }
+
+        //TODO combine this with the ones below and make different multiplier
+        if (currentTemp <= freezingTemp || currentTemp >= overheatTemp)
+        {
+            healthSlider.value -= Time.deltaTime / healthFallRate * healthFallDueTempMulti;
+        }
+
+
+        //TODO implement multiplier (for running, working.. etc)
+        // HEALTH CONTROL SECTION
         if (hungerSlider.value <= 0 && (thirstSlider.value <= 0))
         {
             healthSlider.value -= Time.deltaTime / healthFallRate * 2;
@@ -106,11 +137,22 @@ public class PlayerVitals : MonoBehaviour {
         if (charController.velocity.magnitude > 0 && Input.GetKey(KeyCode.LeftShift))
         {
             staminaSlider.value -= Time.deltaTime / staminaFallRate * staminaFallMultiplier;
+
+            // TODO take out and change it to fit season/weather and the else method too.
+            if (staminaSlider.value > 0)
+            {
+                currentTemp += Time.deltaTime / 5;
+            }
         }
 
         else
         {
             staminaSlider.value += Time.deltaTime / staminaRegainRate * staminaRegainMultiplier;
+            // TODO take out and change it to fit season/weather.
+            if (currentTemp >= normalTemp)
+            {
+                currentTemp -= Time.deltaTime / 10;
+            }
         }
         if (staminaSlider.value >= maxStamina)
         {
@@ -121,6 +163,11 @@ public class PlayerVitals : MonoBehaviour {
             staminaSlider.value = 0;            
         }
 
+    }
+
+    void UpdateTemp()
+    {
+        tempNumber.text = currentTemp.ToString("00.0");
     }
 
     void CharacterDeath()
