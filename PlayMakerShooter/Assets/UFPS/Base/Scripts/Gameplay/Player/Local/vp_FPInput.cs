@@ -15,9 +15,16 @@ using System.Collections.Generic;
 
 public class vp_FPInput : vp_Component
 {
+    //Andy
+    public PlayerVitals playerVitals;
 
-	// mouse look
-	public Vector2 MouseLookSensitivity = new Vector2(5.0f, 5.0f);
+    void Start()
+    {
+        playerVitals = GetComponent<PlayerVitals>();
+    }
+
+    // mouse look
+    public Vector2 MouseLookSensitivity = new Vector2(5.0f, 5.0f);
 	public bool MouseLookMutePitch = false;             // use this to make the 'InputSmoothLook' and 'InputRawLook' events always return zero pitch / yaw , regardless of sensitivity
 	public bool MouseLookMuteYaw = false;				// -		"	-
 	public int MouseLookSmoothSteps = 10;				// allowed range: 1-20
@@ -165,9 +172,9 @@ public class vp_FPInput : vp_Component
 	protected virtual void InputRun()
 	{
 
-		if (vp_Input.GetButton("Run")
-			  || vp_Input.GetAxisRaw("LeftTrigger") > 0.5f		// sprint using the left gamepad trigger
-			)
+		if ((vp_Input.GetButton("Run") || vp_Input.GetAxisRaw("LeftTrigger") > 0.5f) // sprint using the left gamepad trigger
+			  && playerVitals.staminaSlider.value > 0 // andy used all Stamina
+           )
 			FPPlayer.Run.TryStart();
 		else
 			FPPlayer.Run.TryStop();
