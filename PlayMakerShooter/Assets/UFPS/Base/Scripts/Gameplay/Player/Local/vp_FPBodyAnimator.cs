@@ -292,15 +292,16 @@ public class vp_FPBodyAnimator : vp_BodyAnimator
 			Transform.localPosition += ClimbOffset;
 
 	}
-	
-	
-	/// <summary>
-	/// performs special position adjustment logic to make the
-	/// body work well with spring-based vp_FPCamera motions
-	/// without having the camera clipping the local character's
-	/// body model.
-	/// </summary>
-	protected virtual void UpdateCameraPosition()
+
+
+    /// <summary>
+    /// performs special position adjustment logic to make the
+    /// body work well with spring-based vp_FPCamera motions
+    /// without having the camera clipping the local character's
+    /// body model.
+    /// </summary>
+    
+    protected virtual void UpdateCameraPosition()
 	{
 
 		// nail camera to neck

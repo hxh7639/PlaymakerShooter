@@ -11,21 +11,71 @@
 /////////////////////////////////////////////////////////////////////////////////
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class vp_SimpleCrosshair : MonoBehaviour
 {
+    // andy-
+    bool isGreen = false;
+    bool isRed = false;
+    bool isNormal = false;
+    private GameObject raycastedObj;
 
-	// crosshair texture
-	public Texture m_ImageCrosshair = null;
+
+    [Header("Raycast Setting")]
+    [SerializeField]
+    private float rayLength = 10;
+    [SerializeField] private LayerMask layerToCheck;
+
+
+    [Header("References")]
+    [SerializeField] private PlayerVitals playerVitals;
+    [SerializeField] private Text itemNameText;
+    [SerializeField] private Camera fpsCamera;
+    //-andy
+
+    // crosshair texture
+    public Texture m_ImageCrosshair = null;
 
 	public bool Hide = false;					// use this if you want to hide the crosshair without disabling it (crosshair needs to be enabled for interaction to work)
 	public bool HideOnFirstPersonZoom = true;
 	public bool HideOnDeath = true;
 	
 	protected vp_FPPlayerEventHandler m_Player = null;
-	
-	
-	protected virtual void Awake()
+
+    // andy-
+    void Update()
+    {
+        RaycastHit hit;
+        Vector3 fwd = fpsCamera.transform.TransformDirection(Vector3.forward);
+
+        Debug.DrawRay(fpsCamera.transform.position, fwd * 50, Color.red);
+
+
+        if (Physics.Raycast(fpsCamera.transform.position, fwd, out hit, rayLength, layerToCheck.value))
+        {
+            if (hit.collider.CompareTag("Consumable"))
+            {
+                CrosshairGreen();
+                raycastedObj = hit.collider.gameObject;
+                print(raycastedObj);
+                //update UI name
+
+                if (Input.GetMouseButton(0))
+                {
+                    //Object properties
+                }
+            }
+        }
+        else
+        {
+            CrosshairNormal();
+            //item name reset
+        }
+        //-andy
+    }
+
+    protected virtual void Awake()
 	{
 		
 		m_Player = GameObject.FindObjectOfType(typeof(vp_FPPlayerEventHandler)) as vp_FPPlayerEventHandler; // cache the player event handler
@@ -81,12 +131,42 @@ public class vp_SimpleCrosshair : MonoBehaviour
 		GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
 			(Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
 			m_ImageCrosshair.height), m_ImageCrosshair);
-		GUI.color = Color.white;
+		GUI.color = Color.white;        
 	
-	}
-	
-	
-	protected virtual Texture OnValue_Crosshair
+        CrosshairGreen();
+
+    }
+
+    void CrosshairGreen()
+    {
+        GUI.color = new Color(0, 1, 0, 0.8f);
+        GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
+            (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
+            m_ImageCrosshair.height), m_ImageCrosshair);
+        GUI.color = Color.green;
+
+    }
+
+    void CrosshairRed()
+    {
+        GUI.color = new Color(1, 0, 0, 0.8f);
+        GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
+            (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
+            m_ImageCrosshair.height), m_ImageCrosshair);
+        GUI.color = Color.red;
+    }
+
+    void CrosshairNormal()
+    {
+        GUI.color = new Color(1, 1, 1, 0.8f);
+        GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
+            (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
+            m_ImageCrosshair.height), m_ImageCrosshair);
+        GUI.color = Color.white;
+    }
+
+
+    protected virtual Texture OnValue_Crosshair
 	{
 		get { return m_ImageCrosshair; }
 		set { m_ImageCrosshair = value; }
