@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: cbb67ab5509bfe24dba7db2d65a9632f
 ModelImporter:
-  serializedVersion: 18
+  serializedVersion: 16
   fileIDToRecycleName:
     100000: l_ankleProxy_geo
     100002: l_middleProxy_01_geo
@@ -473,6 +473,9 @@ ModelImporter:
     4300110: l_ankleProxy_geo
     4300112: l_kneeProxy_geo
     4300114: l_hipProxy_geo
+    7400000: Avatar_TStance
+    7400002: Run_Jumpvault_SideFlip_R_Run
+    7400004: Run_Jumpvault_SideFlip_L_Run
     7400006: Avatar_TStance
     7400008: Run_Jumpvault_SideFlip_R_Run
     7400010: Run_Jumpvault_SideFlip_L_Run
@@ -498,8 +501,8 @@ ModelImporter:
     - serializedVersion: 16
       name: Jump
       takeName: Jump
-      firstFrame: 270
-      lastFrame: 337
+      firstFrame: 261
+      lastFrame: 338
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -508,7 +511,7 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
@@ -516,84 +519,7 @@ ModelImporter:
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves:
-      - name: ColliderHeight
-        curve:
-          serializedVersion: 2
-          curve:
-          - time: 0
-            value: 2
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .210613534
-            value: 2
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .383084536
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .49585408
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .676616907
-            value: 2
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .764150977
-            value: 2
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: 1
-            value: 2
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          preInfinity: 2
-          postInfinity: 2
-      - name: gravityWeight
-        curve:
-          serializedVersion: 2
-          curve:
-          - time: 0
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .15257065
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .228855759
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .63725853
-            value: .00344827538
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: .773521185
-            value: .996551752
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          - time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-          preInfinity: 2
-          postInfinity: 2
+      curves: []
       events: []
       transformMask: []
       maskType: 0
@@ -609,13 +535,11 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
-    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
@@ -1351,5 +1275,3 @@ ModelImporter:
   animationType: 3
   additionalBone: 1
   userData: 
-  assetBundleName: 
-  assetBundleVariant: 
