@@ -139,30 +139,24 @@ public class vp_SimpleCrosshair : MonoBehaviour
 
     void CrosshairGreen()
     {
-        GUI.color = new Color(0, 1, 0, 0.8f);
-        GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
-            (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
-            m_ImageCrosshair.height), m_ImageCrosshair);
-        GUI.color = Color.green;
+        isGreen = true;
+        isRed = false;
+        isNormal = false;
 
     }
 
     void CrosshairRed()
     {
-        GUI.color = new Color(1, 0, 0, 0.8f);
-        GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
-            (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
-            m_ImageCrosshair.height), m_ImageCrosshair);
-        GUI.color = Color.red;
+        isGreen = false;
+        isRed = true;
+        isNormal = false;
     }
 
     void CrosshairNormal()
     {
-        GUI.color = new Color(1, 1, 1, 0.8f);
-        GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
-            (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
-            m_ImageCrosshair.height), m_ImageCrosshair);
-        GUI.color = Color.white;
+        isGreen = false;
+        isRed = false;
+        isNormal = true;
     }
 
 
