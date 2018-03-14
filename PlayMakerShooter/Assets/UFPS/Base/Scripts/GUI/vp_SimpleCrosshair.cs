@@ -29,7 +29,7 @@ public class vp_SimpleCrosshair : MonoBehaviour
 
 
     [Header("References")]
-    [SerializeField] private PlayerVitals playerVitals;
+    [SerializeField] private AH_PlayerVitals playerVitals;
     [SerializeField] private Text itemNameText;
     [SerializeField] private Camera fpsCamera;
     //-andy
@@ -59,18 +59,19 @@ public class vp_SimpleCrosshair : MonoBehaviour
                 CrosshairGreen();
                 raycastedObj = hit.collider.gameObject;
                 print(raycastedObj);
-                //update UI name
+                itemNameText.text = raycastedObj.GetComponent<AH_ItemProperties>().itemName;
 
                 if (Input.GetMouseButton(0))
                 {
-                    //Object properties
+                    raycastedObj.GetComponent<AH_ItemProperties>().Interaction();
+                    raycastedObj.SetActive(false); // make it go away after its used
                 }
             }
         }
         else
         {
             CrosshairNormal();
-            //item name reset
+            itemNameText.text = null;
         }
         //-andy
     }
@@ -126,17 +127,35 @@ public class vp_SimpleCrosshair : MonoBehaviour
 
 		if(HideOnDeath && m_Player.Dead.Active)
 			return;
+        
 
-		GUI.color = new Color(1, 1, 1, 0.8f);
-		GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
-			(Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
-			m_ImageCrosshair.height), m_ImageCrosshair);
-		GUI.color = Color.white;        
-	
-        CrosshairGreen();
-
+        //andy- 
+        if(isGreen)
+        {
+            GUI.color = new Color(0, 1, 0, 0.8f);
+            GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
+                (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
+                m_ImageCrosshair.height), m_ImageCrosshair);
+            GUI.color = Color.green;
+        }else if (isRed)
+        {
+            GUI.color = new Color(1, 0, 0, 0.8f);
+            GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
+                (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
+                m_ImageCrosshair.height), m_ImageCrosshair);
+            GUI.color = Color.red;
+        }else
+        {
+            GUI.color = new Color(1, 1, 1, 0.8f);
+            GUI.DrawTexture(new Rect((Screen.width * 0.5f) - (m_ImageCrosshair.width * 0.5f),
+                (Screen.height * 0.5f) - (m_ImageCrosshair.height * 0.5f), m_ImageCrosshair.width,
+                m_ImageCrosshair.height), m_ImageCrosshair);
+            GUI.color = Color.white;
+        }        
+        //-andy
     }
 
+    //andy-
     void CrosshairGreen()
     {
         isGreen = true;
@@ -158,7 +177,7 @@ public class vp_SimpleCrosshair : MonoBehaviour
         isRed = false;
         isNormal = true;
     }
-
+    //-andy
 
     protected virtual Texture OnValue_Crosshair
 	{

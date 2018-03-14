@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerVitals : MonoBehaviour {
+public class AH_PlayerVitals : MonoBehaviour {
 
     
     public Slider healthSlider;

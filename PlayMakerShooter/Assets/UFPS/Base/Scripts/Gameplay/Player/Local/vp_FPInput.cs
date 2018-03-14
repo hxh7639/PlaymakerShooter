@@ -16,11 +16,11 @@ using System.Collections.Generic;
 public class vp_FPInput : vp_Component
 {
     //Andy
-    public PlayerVitals playerVitals;
+    public AH_PlayerVitals playerVitals;
 
     void Start()
     {
-        playerVitals = GetComponent<PlayerVitals>();
+        playerVitals = GetComponent<AH_PlayerVitals>();
     }
 
     // mouse look
