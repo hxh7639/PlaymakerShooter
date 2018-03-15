@@ -14,21 +14,24 @@ public class AH_ItemProperties : MonoBehaviour {
 
     [SerializeField] private AH_PlayerVitals playerVitals;
 
-    public void Interaction()
+    public void Interaction(AH_PlayerVitals playerVitals)
     {
         if(food)
         {
             playerVitals.hungerSlider.value += value;
+            this.gameObject.SetActive(false); // make it go away after its used
         }
 
         if (water)
         {
             playerVitals.thirstSlider.value += value;
+            this.gameObject.SetActive(false); // make it go away after its used
         }
 
         if (health)
         {
             playerVitals.healthSlider.value += value;
+            this.gameObject.SetActive(false); // make it go away after its used
         }
 
     }

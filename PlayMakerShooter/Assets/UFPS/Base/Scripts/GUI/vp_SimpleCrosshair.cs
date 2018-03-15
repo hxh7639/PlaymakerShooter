@@ -59,12 +59,13 @@ public class vp_SimpleCrosshair : MonoBehaviour
                 CrosshairGreen();
                 raycastedObj = hit.collider.gameObject;
                 print(raycastedObj);
-                itemNameText.text = raycastedObj.GetComponent<AH_ItemProperties>().itemName;
+                AH_ItemProperties item_Properties = raycastedObj.GetComponent<AH_ItemProperties>();
+                itemNameText.text = item_Properties.itemName;
 
                 if (Input.GetMouseButton(0))
                 {
-                    raycastedObj.GetComponent<AH_ItemProperties>().Interaction();
-                    raycastedObj.SetActive(false); // make it go away after its used
+                    item_Properties.Interaction(playerVitals);
+
                 }
             }
         }

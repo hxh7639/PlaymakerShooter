@@ -5,26 +5,34 @@ using UnityEngine.UI;
 
 public class AH_PlayerVitals : MonoBehaviour {
 
-    
+    #region Health Variables
     public Slider healthSlider;
     public int maxHealth;
     public int healthFallRate;
+    #endregion
 
+    #region Thirst Variables
     public Slider thirstSlider;
     public int maxThirst;
     public int thirstFallRate;
+    #endregion
 
+    #region Hunger Variables
     public Slider hungerSlider;
     public int maxHunger;
     public int hungerFallRate;
+    #endregion
 
+    #region Stamina Variables
     public Slider staminaSlider;
     public int maxStamina;
     public int staminaFallRate;
     public int staminaFallMultiplier;
     private int staminaRegainRate;
     public int staminaRegainMultiplier;
+    #endregion
 
+    #region Temperature Variables
     [Header("Temperature Settings")]
     public float freezingTemp;
     public float currentTemp;
@@ -33,6 +41,7 @@ public class AH_PlayerVitals : MonoBehaviour {
     public Text tempNumber;
     public Image tempBG;
     public int healthFallDueTempMulti = 1;
+    #endregion
 
     private CharacterController charController;
     private vp_FPController playerController;
