@@ -12,24 +12,37 @@ public class AH_PlayerVitals : MonoBehaviour {
     #endregion
 
     #region Thirst Variables
+    [Space(10)]
     public Slider thirstSlider;
     public int maxThirst;
     public int thirstFallRate;
     #endregion
 
     #region Hunger Variables
+    [Space(10)]
     public Slider hungerSlider;
     public int maxHunger;
     public int hungerFallRate;
     #endregion
 
     #region Stamina Variables
+    [Space(10)]
     public Slider staminaSlider;
-    public int maxStamina;
+    public int normMaxStamina = 100;
+    public int fatigueMaxStamina = 100;
     public int staminaFallRate;
     public int staminaFallMultiplier;
     private int staminaRegainRate;
     public int staminaRegainMultiplier;
+    #endregion
+
+    #region Fatigue Region
+    [Space(10)]
+    public Slider fatigueSlider;
+    public int maxFatigue = 100;
+    public int fatigueFallRate;
+
+    public bool fatigueStage1 = true;
     #endregion
 
     #region Temperature Variables
@@ -49,6 +62,10 @@ public class AH_PlayerVitals : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        #region Starting Sliders
+        fatigueSlider.maxValue = maxFatigue;
+        fatigueSlider.value = maxFatigue;
+            
         healthSlider.maxValue = maxHealth;
         healthSlider.value = maxHealth;
 
@@ -58,21 +75,50 @@ public class AH_PlayerVitals : MonoBehaviour {
         hungerSlider.maxValue = maxHunger;
         hungerSlider.value = maxHunger;
 
-        staminaSlider.maxValue = maxStamina;
-        staminaSlider.value = maxStamina;
+        staminaSlider.maxValue = normMaxStamina;
+        staminaSlider.value = normMaxStamina;
+        #endregion
 
         staminaFallRate = 1;
         staminaRegainRate = 1;
 
         charController = GetComponent<CharacterController>();
         playerController = GetComponent<vp_FPController>();
+
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        #region Fatigue Region
+        if (fatigueSlider.value <= 30 && fatigueStage1)
+        {
+            fatigueMaxStamina = 50;
+            staminaSlider.value = fatigueMaxStamina;
+            fatigueStage1 = false;
+        }
+        else if (fatigueSlider.value <=10)
+        {
+            fatigueMaxStamina = 0;
+            staminaSlider.value = fatigueMaxStamina;
+        }
 
-        //TEMPERATURE SECTION
+        if (fatigueSlider.value >=0)
+        {
+            fatigueSlider.value -= Time.deltaTime * fatigueFallRate;
+        }
+        else if (fatigueSlider.value <= 0)
+        {
+            fatigueSlider.value = 0;
+        }
+        else if (fatigueSlider.value >= maxFatigue)
+        {
+            fatigueSlider.value = maxFatigue;
+        }
+
+        #endregion
+
+        # region Temperature Region        
         UpdateTemp();
         if(currentTemp <= freezingTemp)
         {
@@ -86,6 +132,7 @@ public class AH_PlayerVitals : MonoBehaviour {
         {
             tempBG.color = Color.green;
         }
+        #endregion
 
         //TODO combine this with the ones below and make different multiplier
         if (currentTemp <= freezingTemp || currentTemp >= overheatTemp)
@@ -163,9 +210,9 @@ public class AH_PlayerVitals : MonoBehaviour {
                 currentTemp -= Time.deltaTime / 10;
             }
         }
-        if (staminaSlider.value >= maxStamina)
+        if (staminaSlider.value >= fatigueMaxStamina)
         {
-            staminaSlider.value = maxStamina;
+            staminaSlider.value = fatigueMaxStamina;
         }
         else if (staminaSlider.value <= 0)
         {
