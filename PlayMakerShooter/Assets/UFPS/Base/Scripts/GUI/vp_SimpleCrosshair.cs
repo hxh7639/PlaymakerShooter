@@ -62,7 +62,7 @@ public class vp_SimpleCrosshair : MonoBehaviour
                 AH_ItemProperties item_Properties = raycastedObj.GetComponent<AH_ItemProperties>();
                 itemNameText.text = item_Properties.itemName;
 
-                if (Input.GetMouseButton(0))
+                if (vp_Input.GetButtonDown("Interact"))
                 {
                     item_Properties.Interaction(playerVitals);
 

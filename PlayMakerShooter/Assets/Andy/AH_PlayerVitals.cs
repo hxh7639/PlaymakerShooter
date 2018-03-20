@@ -29,7 +29,7 @@ public class AH_PlayerVitals : MonoBehaviour {
     [Space(10)]
     public Slider staminaSlider;
     public int normMaxStamina = 100;
-    public int fatigueMaxStamina = 100;
+    public float fatigueMaxStamina = 100;
     public int staminaFallRate;
     public int staminaFallMultiplier;
     private int staminaRegainRate;
@@ -91,11 +91,11 @@ public class AH_PlayerVitals : MonoBehaviour {
 	void Update ()
     {
         #region Fatigue Region
-        if (fatigueSlider.value <= 30 && fatigueStage1)
+        if (fatigueSlider.value <= 30 && fatigueSlider.value >10)
         {
             fatigueMaxStamina = 50;
             staminaSlider.value = fatigueMaxStamina;
-            fatigueStage1 = false;
+
         }
         else if (fatigueSlider.value <=10)
         {
