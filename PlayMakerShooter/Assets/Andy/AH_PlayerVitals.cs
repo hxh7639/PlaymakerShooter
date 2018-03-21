@@ -91,11 +91,11 @@ public class AH_PlayerVitals : MonoBehaviour {
 	void Update ()
     {
         #region Fatigue Region
-        if (fatigueSlider.value <= 30 && fatigueSlider.value >10)
+        if (fatigueSlider.value <= 30 && fatigueStage1 == true)
         {
             fatigueMaxStamina = 50;
             staminaSlider.value = fatigueMaxStamina;
-
+            fatigueStage1 = false;
         }
         else if (fatigueSlider.value <=10)
         {

@@ -11,6 +11,7 @@ public class AH_DisableManager : MonoBehaviour {
 
         vp_FPInput.MouseCursorForced = true;
         vp_FPInput.MouseCursorBlocksMouseLook = true;
+        Cursor.visible = true;
         
     }
 
@@ -18,7 +19,8 @@ public class AH_DisableManager : MonoBehaviour {
     {
 
         vp_FPInput.MouseCursorForced = false;
-        vp_FPInput.MouseCursorBlocksMouseLook = true;
+        vp_FPInput.MouseCursorBlocksMouseLook = false;
+        Cursor.visible = false;
 
     }
 

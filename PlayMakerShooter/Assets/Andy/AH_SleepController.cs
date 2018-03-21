@@ -31,18 +31,22 @@ public class AH_SleepController : MonoBehaviour {
 
     public void SleepBtn(AH_PlayerVitals playerVitals)
     {
-        playerVitals.fatigueSlider.value = sleepSlider.value * hourlyRegen;
+        playerVitals.fatigueSlider.value += sleepSlider.value * hourlyRegen;
         //if fatigue is more than 30, give full stamina back
         if (playerVitals.fatigueSlider.value > 30)
         {
             playerVitals.fatigueMaxStamina = playerVitals.normMaxStamina;
         }
         playerVitals.staminaSlider.value = playerVitals.normMaxStamina;
-
+        playerVitals.fatigueStage1 = true;
         sleepSlider.value = 1;
         sleepUI.SetActive(false);
         disableManager.EnablePlayer();
     
     }
-
+    public void CancelBtn()
+    {
+        sleepUI.SetActive(false);
+        disableManager.EnablePlayer();
+    }
 }
