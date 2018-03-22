@@ -11,11 +11,13 @@ public class AH_SleepController : MonoBehaviour {
 
     [SerializeField] private float hourlyRegen;
     [SerializeField] private AH_DisableManager disableManager;
+    [SerializeField] private AH_TimeController timeController;
 
     private void Start()
     {
         sleepUI.SetActive(false);
         disableManager = GameObject.FindObjectOfType<AH_DisableManager>();
+        timeController = FindObjectOfType<AH_TimeController>();
     }
 
     public void EnableSleepUI()
@@ -39,6 +41,7 @@ public class AH_SleepController : MonoBehaviour {
         }
         playerVitals.staminaSlider.value = playerVitals.normMaxStamina;
         playerVitals.fatigueStage1 = true;
+        timeController.AddSleepHours(sleepSlider.value);
         sleepSlider.value = 1;
         sleepUI.SetActive(false);
         disableManager.EnablePlayer();

@@ -25,13 +25,19 @@ public class AH_TimeController : MonoBehaviour {
 
         if(currentTimeOfDay >= 1)
         {
-            currentTimeOfDay = 0;
+            currentTimeOfDay -= 1;
         }
+    }
+
+    public void AddSleepHours(float hoursToSleep)
+    {
+        print("AddSleepHours being called");
+        currentTimeOfDay += (hoursToSleep / 24);
     }
 
     private void UpdateSun()
     {
-        sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360f) - 90, 170, 0);
+        sun.transform.localRotation = Quaternion.Euler((currentTimeOfDay * 360) - 90, 170, 0);
         float intensityMultiplier = 1;
         if(currentTimeOfDay <= 0.23f || currentTimeOfDay >= 0.75f)
         {
