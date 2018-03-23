@@ -15,6 +15,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -27,8 +28,8 @@ using UnityEngine.SceneManagement;
 public class vp_DamageHandler : MonoBehaviour
 {
     //Andy Damage Type
-    public bool OnlyDamagesByMace = false;
-    public bool isTree = false;
+    [SerializeField] bool OnlyDamagesByMace = false;
+    [SerializeField] bool isTree = false;
 
     // health and death
     public float MaxHealth = 1.0f;						// initial health of the object instance, to be reset on respawn
@@ -358,7 +359,14 @@ public class vp_DamageHandler : MonoBehaviour
 		{
 			if (o != null)
 			{
+
 				GameObject g = (GameObject)vp_Utility.Instantiate(o, Transform.position, Transform.rotation);
+                if(isTree) // andy, or rocks...etc
+                {
+                    Vector3 position = new Vector3(UnityEngine.Random.Range(-2.0f, 2.0f), UnityEngine.Random.Range(-2.0f, 2.0f), UnityEngine.Random.Range(-2.0f, 2.0f));
+                    GameObject h = (GameObject)vp_Utility.Instantiate(o, Transform.position + position, Transform.rotation);
+                    GameObject i = (GameObject)vp_Utility.Instantiate(o, Transform.position + position, Transform.rotation);
+                }
 				if ((Source != null) && (g != null))
 					vp_TargetEvent<Transform>.Send(g.transform, "SetSource", OriginalSource);
 			}
