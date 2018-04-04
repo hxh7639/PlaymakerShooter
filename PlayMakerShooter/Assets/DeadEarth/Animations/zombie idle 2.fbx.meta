@@ -248,9 +248,14 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'LeftLeg' : position error = 56.491615
+      mm\n\t'LeftFoot' : position error = 147.077133 mm\n"
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Neck1' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -749,16 +754,16 @@ ModelImporter:
     - name: LeftUpLeg
       parentName: Hips
       position: {x: -0.082840994, y: -0.050840996, z: -0.021257}
-      rotation: {x: -0.065610506, y: -0.18112063, z: -0.07672829, w: 0.97826546}
+      rotation: {x: -0.06561051, y: -0.18112063, z: -0.0767283, w: 0.97826546}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftLeg
       parentName: LeftUpLeg
-      position: {x: 0.000385, y: -0.424213, z: -0.000977}
+      position: {x: -0.02, y: -0.413, z: -0.052}
       rotation: {x: 0.3181441, y: -0.0622953, z: -0.02948563, w: 0.9455338}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftFoot
       parentName: LeftLeg
-      position: {x: 0.00038800001, y: -0.426969, z: -0.000983}
+      position: {x: 0.07, y: -0.368, z: 0.113}
       rotation: {x: -0.32590923, y: 0.02527835, z: 0.13469131, w: 0.9354157}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftToeBase
@@ -774,17 +779,17 @@ ModelImporter:
     - name: RightUpLeg
       parentName: Hips
       position: {x: 0.082840994, y: -0.050840996, z: -0.021257}
-      rotation: {x: -0.064291604, y: 0.16051319, z: 0.04091933, w: 0.9840872}
+      rotation: {x: -0.06429161, y: 0.1605132, z: 0.040919334, w: 0.9840873}
       scale: {x: 1, y: 1, z: 1}
     - name: RightLeg
       parentName: RightUpLeg
-      position: {x: -0.000385, y: -0.424213, z: -0.000977}
-      rotation: {x: 0.3338584, y: 0.070267804, z: 0.017204426, w: 0.93984306}
+      position: {x: 0.03, y: -0.405, z: -0.088}
+      rotation: {x: 0.33385843, y: 0.07026781, z: 0.017204428, w: 0.9398431}
       scale: {x: 1, y: 1, z: 1}
     - name: RightFoot
       parentName: RightLeg
-      position: {x: -0.00038800001, y: -0.426969, z: -0.000983}
-      rotation: {x: -0.33431652, y: -0.015594704, z: -0.12535162, w: 0.9339573}
+      position: {x: -0.086, y: -0.348, z: 0.149}
+      rotation: {x: -0.33431655, y: -0.015594705, z: -0.12535164, w: 0.93395734}
       scale: {x: 1, y: 1, z: 1}
     - name: RightToeBase
       parentName: RightFoot
@@ -875,7 +880,7 @@ ModelImporter:
     - name: LeftHandPinky1
       parentName: LeftHand
       position: {x: -0.083285995, y: -0.010105999, z: -0.025659}
-      rotation: {x: 0.010889106, y: 0.04307996, z: 0.045016434, w: 0.9979975}
+      rotation: {x: 0.010889106, y: 0.043079965, z: 0.045016434, w: 0.9979976}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftHandPinky2
       parentName: LeftHandPinky1
@@ -885,7 +890,7 @@ ModelImporter:
     - name: LeftHandPinky3
       parentName: LeftHandPinky2
       position: {x: -0.021557, y: -0.001054, z: 0.000498}
-      rotation: {x: 0.0012987666, y: 0.0006151134, z: 0.056999974, w: 0.99837315}
+      rotation: {x: 0.0012987666, y: 0.0006151135, z: 0.056999974, w: 0.9983732}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftHandPinky4
       parentName: LeftHandPinky3
@@ -905,7 +910,7 @@ ModelImporter:
     - name: LeftHandRing3
       parentName: LeftHandRing2
       position: {x: -0.027568, y: -0.0019249999, z: 0.00079099997}
-      rotation: {x: 0.000677938, y: 0.00053250074, z: 0.025156181, w: 0.99968314}
+      rotation: {x: 0.00067793805, y: 0.00053250074, z: 0.025156183, w: 0.99968314}
       scale: {x: 1, y: 1, z: 1}
     - name: LeftHandRing4
       parentName: LeftHandRing3
@@ -934,7 +939,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Neck
       parentName: Spine2
-      position: {x: -0, y: 0.172181, z: -0.025473}
+      position: {x: 0.001, y: 0.168, z: -0.043}
       rotation: {x: -0.05588787, y: -0.031488396, z: 0.02085203, w: 0.9977225}
       scale: {x: 1, y: 1, z: 1}
     - name: Neck1
@@ -944,8 +949,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Head
       parentName: Neck1
-      position: {x: 0.000124, y: 0.042094998, z: 0.008213}
-      rotation: {x: -0.14936663, y: -0.10459889, z: 0.0014770544, w: 0.9832327}
+      position: {x: 0.00012398418, y: 0.042095013, z: 0.00821298}
+      rotation: {x: -0.22655122, y: -0.100990176, z: 0.017105764, w: 0.9685985}
       scale: {x: 1, y: 1, z: 1}
     - name: HeadTop_End
       parentName: Head
@@ -1195,7 +1200,7 @@ ModelImporter:
     - name: RightArm
       parentName: RightShoulder
       position: {x: 0.096098, y: 0.013667999, z: -0.024165}
-      rotation: {x: -0.056031413, y: 0.009915467, z: 0.09837986, w: 0.9935208}
+      rotation: {x: -0.056031413, y: 0.009915468, z: 0.09837986, w: 0.99352086}
       scale: {x: 1, y: 1, z: 1}
     - name: RightForeArm
       parentName: RightArm
@@ -1260,7 +1265,7 @@ ModelImporter:
     - name: RightHandPinky3
       parentName: RightHandPinky2
       position: {x: 0.021557, y: -0.001054, z: 0.000498}
-      rotation: {x: 0.0012999803, y: -0.0005721297, z: -0.05700453, w: 0.9983729}
+      rotation: {x: 0.0012999803, y: -0.00057212973, z: -0.05700453, w: 0.998373}
       scale: {x: 1, y: 1, z: 1}
     - name: RightHandPinky4
       parentName: RightHandPinky3
@@ -1275,7 +1280,7 @@ ModelImporter:
     - name: RightHandRing2
       parentName: RightHandRing1
       position: {x: 0.037399, y: -0.0036809999, z: 0.0010729999}
-      rotation: {x: 0.0012772206, y: -0.00041231117, z: -0.045719896, w: 0.9989534}
+      rotation: {x: 0.0012772206, y: -0.0004123112, z: -0.045719896, w: 0.99895346}
       scale: {x: 1, y: 1, z: 1}
     - name: RightHandRing3
       parentName: RightHandRing2
